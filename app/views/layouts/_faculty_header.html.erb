@@ -1,0 +1,25 @@
+<header>
+  <div class='container-fluid'>
+    <div class='row-fluid'>
+      <div class='span3 profile_picture'>
+        <% faculty_picture = "#{@faculty_member.first_name}#{@faculty_member.last_name}.JPG" %>
+        <% faculty_picture = File.exist?("app/assets/images/#{faculty_picture}") ? faculty_picture : 'rails.png' %>
+        <% profile_image = image_tag(faculty_picture, :alt => 'myPhoto', :class => 'img-profile') %>
+
+        <%= link_to profile_image, @faculty_member %>
+      </div>
+      <div class='banner'>
+        <h1 class='header-text'>
+          <%= @faculty_member.first_name %> <%= @faculty_member.last_name %>
+        </h1>
+        <h4 class='header-text'>
+          <%= @faculty_member.position %> of <%= @faculty_member.department %>
+        </h4>
+      </div>
+      <div class='logo-right'>
+        <% ua_logo = image_tag('UA-logo-red.png', :alt => 'UA') %>
+        <%= link_to ua_logo, root_path %>
+      </div>
+    </div>
+  </div>
+</header>

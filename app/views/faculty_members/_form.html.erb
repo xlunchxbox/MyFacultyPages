@@ -1,0 +1,47 @@
+<%= form_for(@faculty_member) do |f| %>
+  <%= render '/shared/error_messages', :object => f.object %>
+
+  <div class='field'>
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name %>
+  </div>
+
+  <div class='field'>
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name %>
+  </div>
+
+  <div class='field'>
+    <%= f.label :position %>
+    <%= f.text_field :position %>
+  </div>
+
+  <div class='field'>
+    <%= f.label :department %>
+    <%= f.text_field :department %>
+  </div>
+
+  <div class='field'>
+    <%= f.label :office %>
+    <%= f.text_field :office %>
+  </div>
+
+  <div class='field'>
+    <%= f.label :phone %>
+    <%= f.text_field :phone %>
+  </div>
+
+  <div class='field'>
+    <%= f.label 'Write a short introduction about yourself:' %>
+    <%= f.text_area :summary %>
+  </div>
+
+  <div class='field'>
+    <%= f.label 'Add biography:' %>
+    <%= f.text_area :biography %>
+  </div>
+
+  <div class='actions'>
+     <%= f.submit 'Update profile', class: 'btn btn-small' %>
+  </div>
+<% end %>

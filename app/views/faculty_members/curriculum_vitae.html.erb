@@ -1,0 +1,109 @@
+<div class='main_content'>
+  <h2>Curriculum Vitae</h2>
+
+  <h3>Education</h3>
+    <% @degrees.each do |degree| %>
+      <div class='cv-output'>
+        <strong><%= degree.institution %></strong><br />
+        <%= degree.title %> <%= degree.field_of_study %>
+        <p class='dates'>
+          <%= Date::MONTHNAMES[degree.issue_date.month] %> <%= degree.issue_date.year %>
+        </p>
+        <% if signed_in? %>
+          <%= link_to raw("<i class='icon-edit icon-white'></i> Edit"), edit_degree_path(degree), class: 'btn btn-mini btn-warning' %> <%= link_to raw("<i class='icon-bin icon-white'></i> Remove"), degree,
+          method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-mini btn-danger' %>
+        <% end %>
+      </div>
+    <% end %>
+    <%= link_to 'Add degree', new_degree_path, class: 'btn btn-mini' if signed_in? %>
+  <hr>
+
+  <h3>Employment</h3>
+    <% @employments.each do |employment| %>
+      <div class='cv-output'>
+        <strong>
+        	<%= employment.company %>
+        </strong>
+        <br />
+        <%= employment.position %>
+        <% ending_date = employment.end_date.blank? ? 'Present' : "#{Date::MONTHNAMES[employment.end_date.month]} #{employment.end_date.year}" %>
+        <p class='dates'>
+        <%= Date::MONTHNAMES[employment.start_date.month] %> <%= employment.start_date.year %> -
+        <%= ending_date %>
+        </p>
+        <p>
+        <%= employment.summary %>
+        </p>
+        <% if signed_in? %>
+          <%= link_to raw("<i class='icon-edit icon-white'></i> Edit"), edit_employment_path(employment), class: 'btn btn-mini btn-warning' %> <%= link_to raw("<i class='icon-bin icon-white'></i> Remove"), employment,
+          method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-mini btn-danger' %>
+        <% end %>
+      </div>
+    <% end %>
+    <%= link_to 'Add employment', new_employment_path, class: 'btn btn-mini' if signed_in? %>
+  <hr>
+
+  <h3>Publications</h3>
+    <% @publications.each do |publication| %>
+      <div class='cv-output'>
+        <strong>
+        	<%= publication.title %>
+        </strong>
+        <p class='dates'>
+          <%= publication.year %>
+        </p>
+        <p>
+        <%= publication.summary %>
+        </p>
+        <% if signed_in? %>
+          <%= link_to raw("<i class='icon-edit icon-white'></i> Edit"), edit_publication_path(publication), class: 'btn btn-mini btn-warning' %> <%= link_to raw("<i class='icon-bin icon-white'></i> Remove"), publication,
+          method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-mini btn-danger' %>
+        <% end %>
+      </div>
+    <% end %>
+    <%= link_to 'Add publication', new_publication_path, class: 'btn btn-mini' if signed_in? %>
+  <hr>
+
+  <h3>Research</h3>
+    <% @researches.each do |research| %>
+        <div class='cv-output'>
+          <strong>
+            <%= research.topic %>
+          </strong>
+          <br />
+          <% ending_date = research.end_date.blank? ? 'Present' : "#{Date::MONTHNAMES[research.end_date.month]} #{research.end_date.year}" %>
+          <p class='dates'>
+            <%= Date::MONTHNAMES[research.start_date.month] %> <%= research.start_date.year %> - 
+            <%= ending_date %>
+          </p>
+          <% if signed_in? %>
+          <%= link_to raw("<i class='icon-edit icon-white'></i> Edit"), edit_research_path(research), class: 'btn btn-mini btn-warning' %> <%= link_to raw("<i class='icon-bin icon-white'></i> Remove"), research,
+          method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-mini btn-danger' %>
+        <% end %>
+        </div>
+    <% end %>
+    <%= link_to 'Add research', new_research_path, class: 'btn btn-mini' if signed_in? %>
+  <hr>
+
+  <h3>Awards</h3>
+    <% @awards.each do |award| %>
+      <div class='cv-output'>
+        <strong>
+         <%= award.title %>
+        </strong>
+        <br />
+        <%= award.issuer %>
+        <p class='dates'>
+          <%= Date::MONTHNAMES[award.issue_date.month] %> <%= award.issue_date.year %>
+        </p>
+        <p>
+        <%= award.summary %>
+        </p>
+        <% if signed_in? %>
+          <%= link_to raw("<i class='icon-edit icon-white'></i> Edit"), edit_award_path(award), class: 'btn btn-mini btn-warning' %> <%= link_to raw("<i class='icon-bin icon-white'></i> Remove"), award,
+          method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-mini btn-danger' %>
+        <% end %>
+      </div>
+  <% end %>
+  <%= link_to 'Add award', new_award_path, class: 'btn btn-mini' if signed_in? %>
+</div>

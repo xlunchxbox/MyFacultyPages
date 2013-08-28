@@ -1,0 +1,295 @@
+
+
+Started GET "/" for 127.0.0.1 at 2013-08-28 11:37:06 -0500
+
+ActiveRecord::PendingMigrationError (Migrations are pending; run 'rake db:migrate RAILS_ENV=development' to resolve this issue.):
+  activerecord (4.0.0) lib/active_record/migration.rb:379:in `check_pending!'
+  activerecord (4.0.0) lib/active_record/migration.rb:366:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.0) lib/active_support/callbacks.rb:373:in `_run__4164846276093989837__call__callbacks'
+  activesupport (4.0.0) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `block in call'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.0) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/static.rb:64:in `call'
+  railties (4.0.0) lib/rails/engine.rb:511:in `call'
+  railties (4.0.0) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/christophercruz/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/christophercruz/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/christophercruz/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/christophercruz/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /Users/christophercruz/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
+  Rendered /Users/christophercruz/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /Users/christophercruz/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (18.1ms)
+  [1m[36m (1.0ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (0.7ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateFacultyMembers (20130729155058)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mCREATE TABLE "faculty_members" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "last_name" varchar(255), "first_name" varchar(255), "position" varchar(255), "department" varchar(255), "summary" text, "biography" text, "university_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20130729155058"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+Migrating to AddEmailToFacultyMembers (20130730033004)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.6ms)[0m  [1mALTER TABLE "faculty_members" ADD "email" varchar(255)[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20130730033004"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+Migrating to AddPhoneToFacultyMembers (20130730033950)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "faculty_members" ADD "phone" integer[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20130730033950"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+Migrating to AddOfficeToFacultyMembers (20130730034055)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "faculty_members" ADD "office" varchar(255)[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20130730034055"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+Migrating to CreateCourses (20130731022421)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "courses" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "dept_code" varchar(255), "course_no" integer, "name" varchar(255), "term" varchar(255), "year" integer, "summary" text, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20130731022421"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+Migrating to AddFacultyMemberIdToCourses (20130731164512)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "courses" ADD "faculty_member_id" integer[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20130731164512"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+Migrating to CreateResearches (20130801031532)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "researches" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "topic" varchar(255), "start_date" date, "end_date" date, "summary" text, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20130801031532"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+Migrating to AddFacultyMemberIdToResearches (20130801035123)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "researches" ADD "faculty_member_id" integer[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20130801035123"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+Migrating to CreatePublications (20130801193824)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "publications" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "summary" text, "faculty_member_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20130801193824"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+Migrating to AddYearToPublications (20130802010805)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "publications" ADD "year" integer[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20130802010805"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+Migrating to AddImageUrlToPublications (20130802014640)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "publications" ADD "image_url" varchar(255)[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20130802014640"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+Migrating to CreateDegrees (20130802054936)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "degrees" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "field_of_study" varchar(255), "institution" varchar(255), "issue_date" date, "faculty_member_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20130802054936"]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+Migrating to CreateEmployments (20130803020430)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "employments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "company" varchar(255), "position" varchar(255), "start_date" date, "end_date" date, "summary" text, "faculty_member_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20130803020430"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+Migrating to CreateAwards (20130803050412)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "awards" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "issuer" varchar(255), "issue_date" date, "summary" text, "faculty_member_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20130803050412"]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+Migrating to AddPasswordDigestToFacultyMembers (20130804174745)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "faculty_members" ADD "password_digest" varchar(255)[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20130804174745"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+Migrating to AddRememberTokenToFacultyMembers (20130804183202)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "faculty_members" ADD "remember_token" varchar(255)[0m
+  [1m[35m (0.1ms)[0m  CREATE INDEX "index_faculty_members_on_remember_token" ON "faculty_members" ("remember_token")
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20130804183202"]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFacultyMember Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "faculty_members" WHERE "faculty_members"."university_id" = 123456 LIMIT 1[0m
+  [1m[35mFacultyMember Exists (0.1ms)[0m  SELECT 1 AS one FROM "faculty_members" WHERE "faculty_members"."phone" = 1234567890 LIMIT 1
+  [1m[36mFacultyMember Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "faculty_members" WHERE "faculty_members"."email" = 'johndoe@uastalia.edu' LIMIT 1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (2.6ms)[0m  INSERT INTO "faculty_members" ("biography", "created_at", "department", "email", "first_name", "last_name", "password_digest", "phone", "position", "remember_token", "summary", "university_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["biography", "I obtained my Ph.D. from the University of Houston in 2000 and have been teaching here ever since then as a professor.  My specialties lie"], ["created_at", Wed, 28 Aug 2013 16:37:17 UTC +00:00], ["department", "Computer Science"], ["email", "johndoe@uastalia.edu"], ["first_name", "John"], ["last_name", "Doe"], ["password_digest", "$2a$10$I9NWU.ZRUhjm86yu5c/iA.2BmMfxIdScnbDwoYGxlFNQpH.PbxYnW"], ["phone", 1234567890], ["position", "Professor"], ["remember_token", "f92649c030a1789f80083f619b5090897696e3e7"], ["summary", "Hello there! My name is John Doe and I am a professor of computer science here at the University of Astalia! It gives me great pleasure \nto welcome you to the computer science department."], ["university_id", 123456], ["updated_at", Wed, 28 Aug 2013 16:37:17 UTC +00:00]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFacultyMember Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "faculty_members" WHERE "faculty_members"."university_id" = 234567 LIMIT 1[0m
+  [1m[35mFacultyMember Exists (0.1ms)[0m  SELECT 1 AS one FROM "faculty_members" WHERE "faculty_members"."phone" = 2345678901 LIMIT 1
+  [1m[36mFacultyMember Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "faculty_members" WHERE "faculty_members"."email" = 'selvindoe@uastalia.edu' LIMIT 1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "faculty_members" ("created_at", "department", "email", "first_name", "last_name", "password_digest", "phone", "position", "remember_token", "university_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["created_at", Wed, 28 Aug 2013 16:37:17 UTC +00:00], ["department", "Computer Science"], ["email", "selvindoe@uastalia.edu"], ["first_name", "Selvin"], ["last_name", "Doe"], ["password_digest", "$2a$10$/hC2oNheLAMyPfg5D.TKx.s4aLsiCFD5OjV9f4iZt3fIYFyuaq5w6"], ["phone", 2345678901], ["position", "Professor"], ["remember_token", "01ecb425d345e4a02ed5f8c966ccbe7680f33bf9"], ["university_id", 234567], ["updated_at", Wed, 28 Aug 2013 16:37:17 UTC +00:00]]
+  [1m[36m (1.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "courses" ("course_no", "created_at", "dept_code", "faculty_member_id", "name", "summary", "term", "updated_at", "year") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["course_no", 1410], ["created_at", Wed, 28 Aug 2013 16:37:17 UTC +00:00], ["dept_code", "COSC"], ["faculty_member_id", 1], ["name", "Introduction to C++"], ["summary", "Introduction to the C++ programming language."], ["term", "Fall"], ["updated_at", Wed, 28 Aug 2013 16:37:17 UTC +00:00], ["year", 2013]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "courses" ("course_no", "created_at", "dept_code", "faculty_member_id", "name", "summary", "term", "updated_at", "year") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)  [["course_no", 1320], ["created_at", Wed, 28 Aug 2013 16:37:17 UTC +00:00], ["dept_code", "COSC"], ["faculty_member_id", 1], ["name", "Introduction to Java"], ["summary", "Introduction to the Java programming language."], ["term", "Spring"], ["updated_at", Wed, 28 Aug 2013 16:37:17 UTC +00:00], ["year", 2014]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "courses" ("course_no", "created_at", "dept_code", "faculty_member_id", "name", "summary", "term", "updated_at", "year") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["course_no", 2410], ["created_at", Wed, 28 Aug 2013 16:37:17 UTC +00:00], ["dept_code", "COSC"], ["faculty_member_id", 1], ["name", "Logic and Design Fundamentals"], ["summary", "Logical operations within computer hardware and simplification of circuits."], ["term", "Fall"], ["updated_at", Wed, 28 Aug 2013 16:37:17 UTC +00:00], ["year", 2014]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "courses" ("course_no", "created_at", "dept_code", "faculty_member_id", "name", "summary", "term", "updated_at", "year") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)  [["course_no", 3310], ["created_at", Wed, 28 Aug 2013 16:37:17 UTC +00:00], ["dept_code", "COSC"], ["faculty_member_id", 1], ["name", "Software Engineering"], ["summary", "Fundamental practices for developing software to industry standards."], ["term", "Spring"], ["updated_at", Wed, 28 Aug 2013 16:37:17 UTC +00:00], ["year", 2015]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (2.9ms)[0m  [1mINSERT INTO "researches" ("created_at", "end_date", "faculty_member_id", "start_date", "summary", "topic", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Wed, 28 Aug 2013 16:37:17 UTC +00:00], ["end_date", Wed, 28 Aug 2013], ["faculty_member_id", 1], ["start_date", Fri, 01 Jun 2007], ["summary", "Sample summary for reserach topic goes here."], ["topic", "Fundamentals of Artificial Intelligence and its Applications"], ["updated_at", Wed, 28 Aug 2013 16:37:17 UTC +00:00]]
+  [1m[35m (1.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "researches" ("created_at", "end_date", "faculty_member_id", "start_date", "summary", "topic", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Wed, 28 Aug 2013 16:37:17 UTC +00:00], ["end_date", Wed, 28 Aug 2013], ["faculty_member_id", 1], ["start_date", Mon, 01 May 1995], ["summary", "Another ample summary for reserach topic goes here."], ["topic", "Computing Networks"], ["updated_at", Wed, 28 Aug 2013 16:37:17 UTC +00:00]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "researches" ("created_at", "end_date", "faculty_member_id", "start_date", "summary", "topic", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Wed, 28 Aug 2013 16:37:17 UTC +00:00], ["end_date", Wed, 28 Aug 2013], ["faculty_member_id", 1], ["start_date", Fri, 01 Aug 1997], ["summary", "Yet another sample summary for reserach topic goes here."], ["topic", "Medical Imaging and Robotics"], ["updated_at", Wed, 28 Aug 2013 16:37:17 UTC +00:00]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "publications" ("created_at", "faculty_member_id", "summary", "title", "updated_at", "year") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Wed, 28 Aug 2013 16:37:17 UTC +00:00], ["faculty_member_id", 1], ["summary", "A great textbook for introductory computer science students being introduced to C++."], ["title", "Introduction to C++ Programming"], ["updated_at", Wed, 28 Aug 2013 16:37:17 UTC +00:00], ["year", 2000]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "publications" ("created_at", "faculty_member_id", "summary", "title", "updated_at", "year") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Wed, 28 Aug 2013 16:37:17 UTC +00:00], ["faculty_member_id", 1], ["summary", "A great textbook for introductory computer science students being introduced to Java."], ["title", "Introduction to Java Programming"], ["updated_at", Wed, 28 Aug 2013 16:37:17 UTC +00:00], ["year", 2000]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "degrees" ("created_at", "faculty_member_id", "field_of_study", "institution", "issue_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Wed, 28 Aug 2013 16:37:17 UTC +00:00], ["faculty_member_id", 1], ["field_of_study", "Computer Science"], ["institution", "University of Astalia"], ["issue_date", Sun, 01 Jun 2003], ["title", "Ph.D"], ["updated_at", Wed, 28 Aug 2013 16:37:17 UTC +00:00]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "awards" ("created_at", "faculty_member_id", "issue_date", "issuer", "summary", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Wed, 28 Aug 2013 16:37:17 UTC +00:00], ["faculty_member_id", 1], ["issue_date", Fri, 01 Feb 2008], ["issuer", "University of Astalia"], ["summary", "Awarded for recognition of teaching efforts here at UACS."], ["title", "Best Teaching Award"], ["updated_at", Wed, 28 Aug 2013 16:37:17 UTC +00:00]]
+  [1m[35m (1.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "employments" ("company", "created_at", "end_date", "faculty_member_id", "position", "start_date", "summary", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["company", "Foo Company"], ["created_at", Wed, 28 Aug 2013 16:37:17 UTC +00:00], ["end_date", Mon, 02 May 2005], ["faculty_member_id", 1], ["position", "Software Developer"], ["start_date", Thu, 02 Jan 2003], ["summary", "Worked as a software developer for the advertising department"], ["updated_at", Wed, 28 Aug 2013 16:37:17 UTC +00:00]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+
+
+Started GET "/" for 127.0.0.1 at 2013-08-28 11:37:21 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by FacultyMembersController#index as HTML
+  [1m[35mFacultyMember Load (0.1ms)[0m  SELECT "faculty_members".* FROM "faculty_members"
+  [1m[36mDegree Load (1.7ms)[0m  [1mSELECT "degrees".* FROM "degrees" WHERE "degrees"."faculty_member_id" = ?[0m  [["faculty_member_id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT "researches"."topic" FROM "researches" WHERE "researches"."faculty_member_id" = ?  [["faculty_member_id", 1]]
+  [1m[36mDegree Load (0.1ms)[0m  [1mSELECT "degrees".* FROM "degrees" WHERE "degrees"."faculty_member_id" = ?[0m  [["faculty_member_id", 2]]
+  [1m[35m (0.1ms)[0m  SELECT "researches"."topic" FROM "researches" WHERE "researches"."faculty_member_id" = ?  [["faculty_member_id", 2]]
+  Rendered faculty_members/index.html.erb within layouts/application (108.3ms)
+  Rendered layouts/_index_header.html.erb (2.8ms)
+  [1m[36mFacultyMember Load (0.2ms)[0m  [1mSELECT "faculty_members".* FROM "faculty_members" WHERE "faculty_members"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered layouts/_bar.html.erb (6.5ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 1433ms (Views: 1398.3ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-08-28 11:37:22 -0500
+
+
+Started GET "/assets/awards.css?body=1" for 127.0.0.1 at 2013-08-28 11:37:23 -0500
+
+
+Started GET "/assets/bootstrap-responsive.css?body=1" for 127.0.0.1 at 2013-08-28 11:37:23 -0500
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2013-08-28 11:37:23 -0500
+
+
+Started GET "/assets/courses.css?body=1" for 127.0.0.1 at 2013-08-28 11:37:23 -0500
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2013-08-28 11:37:23 -0500
+
+
+Started GET "/assets/degrees.css?body=1" for 127.0.0.1 at 2013-08-28 11:37:23 -0500
+
+
+Started GET "/assets/employments.css?body=1" for 127.0.0.1 at 2013-08-28 11:37:23 -0500
+
+
+Started GET "/assets/faculty_members.css?body=1" for 127.0.0.1 at 2013-08-28 11:37:23 -0500
+
+
+Started GET "/assets/glyphicons.css?body=1" for 127.0.0.1 at 2013-08-28 11:37:23 -0500
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2013-08-28 11:37:23 -0500
+
+
+Started GET "/assets/publications.css?body=1" for 127.0.0.1 at 2013-08-28 11:37:23 -0500
+
+
+Started GET "/assets/researches.css?body=1" for 127.0.0.1 at 2013-08-28 11:37:23 -0500
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2013-08-28 11:37:23 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-08-28 11:37:23 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-08-28 11:37:23 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-08-28 11:37:23 -0500
+
+
+Started GET "/assets/awards.js?body=1" for 127.0.0.1 at 2013-08-28 11:37:23 -0500
+
+
+Started GET "/assets/courses.js?body=1" for 127.0.0.1 at 2013-08-28 11:37:23 -0500
+
+
+Started GET "/assets/degrees.js?body=1" for 127.0.0.1 at 2013-08-28 11:37:23 -0500
+
+
+Started GET "/assets/employments.js?body=1" for 127.0.0.1 at 2013-08-28 11:37:23 -0500
+
+
+Started GET "/assets/faculty_members.js?body=1" for 127.0.0.1 at 2013-08-28 11:37:23 -0500
+
+
+Started GET "/assets/pages.js?body=1" for 127.0.0.1 at 2013-08-28 11:37:23 -0500
+
+
+Started GET "/assets/publications.js?body=1" for 127.0.0.1 at 2013-08-28 11:37:23 -0500
+
+
+Started GET "/assets/researches.js?body=1" for 127.0.0.1 at 2013-08-28 11:37:23 -0500
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2013-08-28 11:37:23 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-08-28 11:37:23 -0500
+
+
+Started GET "/assets/UA-logo-full.png" for 127.0.0.1 at 2013-08-28 11:37:23 -0500
+
+
+Started GET "/assets/UACS.png" for 127.0.0.1 at 2013-08-28 11:37:23 -0500
+
+
+Started GET "/assets/JohnDoe.JPG" for 127.0.0.1 at 2013-08-28 11:37:23 -0500
+
+
+Started GET "/assets/SelvinDoe.JPG" for 127.0.0.1 at 2013-08-28 11:37:23 -0500
+
+
+Started GET "/assets/Background.png" for 127.0.0.1 at 2013-08-28 11:37:23 -0500
+
+
+Started GET "/assets/Header.png" for 127.0.0.1 at 2013-08-28 11:37:23 -0500
+
+
+Started GET "/assets/Bar2.png" for 127.0.0.1 at 2013-08-28 11:37:23 -0500

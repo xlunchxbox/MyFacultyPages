@@ -1,0 +1,30 @@
+<div class='main_content'>
+  <h2>Publications</h2>
+  <table class='table table-bordered'>
+    <tr>
+      <th class='span2'>Cover</th>
+      <th>Information</th>
+    </tr>
+
+    <% @publications.each do |publication| %>
+      <tr>
+        <td class='span2'>
+          <% image_path = publication.image_url.blank? ? 'UA-logo-red.png' : publication.image_url %>
+          <%= image_tag(image_path, :class => 'img-index') %>
+        </td>
+        <td>
+        	<strong><%= publication.title %></strong>
+        	<p><i><%= @faculty_member.first_name %> <%= @faculty_member.last_name %></i></p>
+        	<p>
+            <%= publication.summary %>
+            
+          </p>
+          <% if signed_in? %>
+            <%= link_to raw("<i class='icon-edit icon-white'></i> Edit"), edit_publication_path(publication), class: 'btn btn-mini btn-warning' %> <%= link_to raw("<i class='icon-bin icon-white'></i> Remove"), publication, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-mini btn-danger' %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+  <%= link_to 'Add publication', new_publication_path, class: 'btn' if signed_in? %>
+</div>

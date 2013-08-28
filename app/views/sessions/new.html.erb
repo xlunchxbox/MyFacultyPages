@@ -1,0 +1,19 @@
+<div class='main_content'>
+  <div class='row'>
+    <div class='span6 offset1'>
+      <h1>Sign In</h1>
+
+      <%= form_for(:session, url: sessions_path) do |f| %>
+        <%= f.label :faculty_member_id, 'UA ID' %>
+			  <%= f.text_field :university_id %>
+
+			  <%= f.label :password %>
+			  <%= f.password_field :password %>
+			  <br />
+
+			  <%= f.submit 'Sign in', class: 'btn btn-primary' %>
+      <% end %>
+      <p><%= link_to 'Back to UACS', root_path %></p>
+    </div>
+  </div>
+</div>

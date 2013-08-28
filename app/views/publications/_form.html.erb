@@ -1,0 +1,28 @@
+<div class='row'>
+  <div class='span5 offset1'>
+  <h2><%= @title %></h2>
+<%= form_for(@publication) do |f| %>
+  <%= render '/shared/error_messages', :object => f.object %>
+
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :summary %>
+    <%= f.text_area :summary %>
+  </div>
+  <div class="field">
+    <%= f.label :year %>
+    <%= f.select :year, options_for_select(years) %>
+  </div>
+  <div class="field">
+    <%= f.label :image_url %>
+    <%= f.text_field :image_url %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+</div>
+</div>

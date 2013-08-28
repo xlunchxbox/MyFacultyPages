@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= @title %></title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= stylesheet_link_tag 'bootstrap', :media => 'all' %>
+  <%= stylesheet_link_tag 'custom', :media => 'all' %>
+  <%= stylesheet_link_tag 'glyphicons', :media => 'all' %>
+
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div class='wrapper'>
+    <% header = @faculty_view ? 'faculty_header' : 'index_header' %>
+    <%= render "layouts/#{header}" %>
+
+    <%= render 'layouts/bar' %>
+    
+    <div class='container-fluid'>
+      <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>">
+          <%= value %>
+        </div>
+      <% end %>
+      <div class='row-fluid'>
+        <%= render 'layouts/navigation' if @faculty_member %>     
+        <div class="<%= 'span9' if @faculty_view %>">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+
+    <hr>
+    <%= render 'layouts/footer' %>
+  </div>
+</body>
+</html>

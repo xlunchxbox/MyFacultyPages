@@ -1,0 +1,21 @@
+<div class='main_content'>
+  <h2>Courses</h2>
+  <% @courses.each do |course| %>
+    <strong>
+      <%= course.dept_code %> <%= course.course_no %>: <%= course.name %>
+    </strong>
+    <p class='dates'>
+      <%= course.term %> <%= course.year %>
+    </p>
+    <p>
+    <%= course.summary %>
+    </p>
+    <% if signed_in? %>
+    <%= link_to link_to raw("<i class='icon-edit icon-white'></i> Edit"), edit_course_path(course), class: 'btn btn-mini btn-warning' %> 
+    <%= link_to raw("<i class=\"icon-bin icon-white\"></i> Remove"), course, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-mini btn-danger' %>
+    <% end %>
+    <hr>
+  <% end %>
+
+  <%= link_to 'Add course', new_course_path, class: 'btn' if signed_in? %>
+</div>

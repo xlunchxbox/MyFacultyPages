@@ -1,0 +1,22 @@
+<div class='main_content'>
+  <h2>Contact Details</h2>
+  <p>
+    <%= @faculty_member.first_name %> <%= @faculty_member.last_name %><br />
+    University of Astalia<br />
+    Department of Computer Science<br />
+    7700 University Avenue<br />
+    Winston, AS 81414-1314
+  </p>
+
+  <p>
+    <strong>Email: </strong>
+    <%= @faculty_member.email %>
+    <br />
+    <strong>Office: </strong>
+    <%= @faculty_member.office.blank? ? 'Unavailable' : @faculty_member.office %>
+    <br />
+    <strong>Phone: </strong>
+    <%= @faculty_member.phone.blank? ? 'Unavailable' 
+      : "(#{@faculty_member.phone.to_s[0..2]}) #{@faculty_member.phone.to_s[3..5]}-#{@faculty_member.phone.to_s[6..9]}" %>
+  </p>
+</div>

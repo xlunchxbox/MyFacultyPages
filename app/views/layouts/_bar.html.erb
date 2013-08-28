@@ -1,0 +1,9 @@
+<div class='bar'>
+  <% logo = image_tag('UACS.png', :alt => 'UA Computer Science', :class => 'UHCS-logo') %>
+  <%= link_to logo, root_path, class: 'UHCS-path' %>
+  <% if signed_in? %>
+    <%= link_to 'Sign out', signout_path, method: 'delete', class: 'signin-path' %>
+  <% else %>
+    <%= link_to 'Sign in', signin_path, class: 'signin-path' %>
+  <% end %>
+</div>

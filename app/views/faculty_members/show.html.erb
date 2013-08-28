@@ -1,0 +1,11 @@
+<div class='main_content'>
+  <h2>Welcome to <%= @faculty_member.first_name %> <%= @faculty_member.last_name %>'s page!</h2>
+  <p><%= @faculty_member.summary %></p>
+
+  <% unless @faculty_member.biography.blank? %>
+  <h4>Biography</h4>
+  <p><%= @faculty_member.biography %></p>
+  <% end %>
+
+  <%= link_to raw("<i class='icon-edit'></i> Edit profile"), edit_faculty_member_path(@faculty_member), class: 'btn' if signed_in? %>
+</div>

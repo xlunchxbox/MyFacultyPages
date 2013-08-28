@@ -1,0 +1,36 @@
+<div class='row'>
+  <div class='span5 offset1'>
+    <h2><%= @title %></h2>
+    <%= form_for(@course) do |f| %>
+    <%= render '/shared/error_messages', :object => f.object %>
+  <div class="field">
+    <%= f.label :department_code %>
+    <%= f.text_field :dept_code %>
+  </div>
+  <div class="field">
+    <%= f.label :course_number %>
+    <%= f.number_field :course_no %>
+  </div>
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :term %>
+    <%= f.select :term, options_for_select(semester)%>
+  </div>
+  <div class="field">
+    <%= f.label :year %>
+    <%= f.select :year, options_for_select(years) %>
+  </div>
+  <div class="field">
+    <%= f.label :summary %>
+    <%= f.text_area :summary %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+  </div>
+</div>

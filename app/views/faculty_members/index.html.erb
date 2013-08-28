@@ -1,0 +1,38 @@
+<div class='main_content'>
+  <h2>Computer Science Faculty</h2>
+  <table class='table table-bordered'>
+    <tr>
+      <th class='span2'>Photo</th>
+      <th>Information</th>
+      <th class='span4'>Contact Details</th>
+    </tr>
+
+    <% @faculty_members.each do |member| %>
+      <tr>
+        <td class='span2'>
+          <% image_file = "#{member.first_name}#{member.last_name}.JPG" %>
+          <% image_file = File.exist?("app/assets/images/#{image_file}") ? image_file : 'UA-logo-red.png' %>
+          <%= image_tag(image_file, :class => 'img-index') %>
+        </td>
+        <td>
+          <p>
+          <strong><%= member.first_name %> <%= member.last_name %></strong><br />
+          <%= member.position %><br />
+          <% member.degrees.each do |degree| %>
+            <%= degree.title %> <%= degree.field_of_study %>, <%= degree.institution %><br />
+          <% end %>
+          </p>
+          <%= member.researches.pluck(:topic).to_sentence %>
+          <br />
+          <%= link_to 'Website', faculty_member_path(member) %>
+        </td>
+        <td class='span4'>
+          Office: <%= member.office.blank? ? 'Unavailable' : member.office %><br />
+          Phone: <%= member.phone.blank? ? 'Unavailable' : "(#{member.phone.to_s[0..2]}) #{member.phone.to_s[3..5]}-#{member.phone.to_s[6..9]}" %>
+          <br />
+          Email: <%= member.email %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+</div>

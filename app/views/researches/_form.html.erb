@@ -1,0 +1,28 @@
+<div class='row'>
+<div class='span5 offset1'>
+<h2><%= @title %></h2>
+<%= form_for(@research) do |f| %>
+  <%= render '/shared/error_messages', :object => f.object %>
+
+  <div class="field">
+    <%= f.label :topic %>
+    <%= f.text_field :topic %>
+  </div>
+  <div class="field">
+    <%= f.label :start_date %>
+    <%= f.date_select :start_date, { :start_year => Date.today.year-70, :end_year => Date.today.year } %>
+  </div>
+  <div class="field">
+    <%= f.label :end_date %>
+    <%= f.date_select :end_date, { :start_year => Date.today.year-70, :end_year => Date.today.year } %>
+  </div>
+  <div class="field">
+    <%= f.label :summary %>
+    <%= f.text_area :summary %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+</div>
+</div>

@@ -1,0 +1,13 @@
+<div class='span3 navigation'>
+  <div class='well sidebar-nav'>
+    <ul class='nav nav-list'>
+      <li class='nav-header'>Navigation</li>
+      <li><%= link_to 'Home', @faculty_member %></li>
+      <li><%= link_to 'Courses', courses_faculty_member_path(@faculty_member) %></li>
+      <li><%= link_to 'Research', researches_faculty_member_path(@faculty_member) %></li>
+      <li><%= link_to 'Publications', publications_faculty_member_path(@faculty_member) %></li>
+      <li><%= link_to 'Curriculum Vitae', curriculum_vitae_faculty_member_path(@faculty_member) %></li>
+      <li><%= link_to 'Contact Details', contact_details_faculty_member_path(@faculty_member) %></li>
+    </ul>
+  </div>
+</div>

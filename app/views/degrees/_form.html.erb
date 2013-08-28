@@ -1,0 +1,28 @@
+<div class='row'>
+  <div class='span5 offset1'>
+  <h2><%= @title %></h2>
+<%= form_for(@degree) do |f| %>
+  <%= render '/shared/error_messages', :object => f.object %>
+
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.select :title, ['Ph.D.', 'M.S.', 'B.S.'], :prompt => 'Select' %>
+  </div>
+  <div class="field">
+    <%= f.label :field_of_study %>
+    <%= f.text_field :field_of_study %>
+  </div>
+  <div class="field">
+    <%= f.label :institution %>
+    <%= f.text_field :institution %>
+  </div>
+  <div class="field">
+    <%= f.label :issue_date %>
+    <%= f.date_select :issue_date, { :start_year => Date.today.year-70, :end_year => Date.today.year } %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+</div>
+</div>

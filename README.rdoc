@@ -1,0 +1,11 @@
+= MyFacultyPages
+
+MyFacultyPages is a free web application template that can be used to help standardize the layouts and appearances of personal websites used by members of an organization.  Built using the latest versions of Ruby on Rails and the Ruby programming language, MyFacultyPages allows members to modify the content displayed on their web pages without having to directly access the underlying HTML and programming logic involved.
+
+=== A few reminders
+
+- MyFacultyPages was completed as part of an academic project for an agile web application development course.
+- MyFacultyPages includes a basic authentication system to prevent unauthorized write access to personal web pages.  A user ID and password is required for login.
+- MyFacultyPages utilizes Twitter Bootstrap for CSS styling.  Additional style rules can be defined in the custom.css file.
+- MyFacultyPages has been designed and developed in accordance with agile development practices to ensure feature extensibility and maintainability.
+- MyFacultyPages utilizes the RSpec behavior-driven development testing framework for unit and functional testing.
