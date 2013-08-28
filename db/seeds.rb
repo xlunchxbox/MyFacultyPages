@@ -11,11 +11,11 @@ to welcome you to the computer science department.'
 
 biography = 'I obtained my Ph.D. from the University of Houston in 2000 and have been teaching here ever since then as a professor.  My specialties lie'
 
-FacultyMember.create(first_name: 'John', last_name: 'Doe', position: 'Professor', password: 'foobar', phone: 12345678,
+FacultyMember.create(first_name: 'John', last_name: 'Doe', position: 'Professor', password: 'foobar',
   password_confirmation: 'foobar', department: 'Computer Science', university_id: 123456, email: 'johndoe@uastalia.edu',
   summary: summary, biography: biography)
 
-FacultyMember.create(first_name: 'Selvin', last_name: 'Doe', position: 'Professor', password: 'foobar', phone: 23456789,
+FacultyMember.create(first_name: 'Selvin', last_name: 'Doe', position: 'Professor', password: 'foobar',
   password_confirmation: 'foobar', department: 'Computer Science', university_id: 234567, email: 'selvindoe@uastalia.edu')
 
 Course.create(dept_code: 'COSC', course_no: 1410, name: 'Introduction to C++', term: 'Fall', year: 2013,
